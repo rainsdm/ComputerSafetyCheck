@@ -2,6 +2,10 @@ import os
 
 
 def jkmstsc():
+    """
+    检测连接到3389端口的ip地址，然后将连接信息写入到success.txt。
+    :return: none
+    """
     mstsc = (os.popen('netstat -n -p tcp | find "3389"').readlines())
     date = os.popen('date /t').readlines()
     t = os.popen('time /t').readlines()
@@ -15,6 +19,11 @@ def jkmstsc():
 
 
 def jkestablished():
+    """
+    解析连接状态为ESTABLISHED的本地地址和远程地址，并记录连接信息。\n
+    可以选择是否打印入侵者提示。
+    :return: none
+    """
     connections = os.popen('netstat -n -p tcp').readlines()
     date = os.popen('date /t').readlines()
     t = os.popen('time /t').readlines()
